@@ -1,0 +1,149 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Hikari — Design System
+ * Identidade: preto + azul-claro. Tecnológico, elegante, limpo.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-soft: var(--primary-soft);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --shadow-glow: 0 0 40px -12px color-mix(in oklab, var(--primary) 45%, transparent);
+  --shadow-card-hover: 0 12px 40px -16px color-mix(in oklab, var(--primary) 30%, transparent);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* Base — preto */
+  --background: oklch(0.145 0.005 250); /* #0A0A0A-ish sobre base preta */
+  --foreground: oklch(0.98 0 0); /* #FFFFFF */
+  --card: oklch(0.18 0.006 250);
+  --card-foreground: oklch(0.98 0 0);
+  --popover: oklch(0.16 0.006 250);
+  --popover-foreground: oklch(0.98 0 0);
+
+  /* Azul-claro principal (#87CEFA) */
+  --primary: oklch(0.828 0.091 227.5);
+  --primary-foreground: oklch(0.16 0.03 250);
+  /* Azul-claro secundário (#BFE9FF) */
+  --primary-soft: oklch(0.905 0.05 225);
+
+  --secondary: oklch(0.22 0.02 250);
+  --secondary-foreground: oklch(0.905 0.05 225);
+
+  --muted: oklch(0.22 0.01 250);
+  --muted-foreground: oklch(0.71 0.015 250); /* #A0A0A0 */
+
+  --accent: oklch(0.26 0.035 245); /* azul mais escuro */
+  --accent-foreground: oklch(0.905 0.05 225);
+
+  --destructive: oklch(0.63 0.21 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --success: oklch(0.75 0.14 160);
+
+  --border: oklch(0.28 0.015 250);
+  --input: oklch(0.3 0.015 250);
+  --ring: oklch(0.828 0.091 227.5);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--primary) 35%, transparent);
+  }
+}
+
+@layer utilities {
+  /* Animações leves */
+  .animate-fade-in {
+    animation: fade-in 0.7s ease-out both;
+  }
+  .animate-fade-in-up {
+    animation: fade-in-up 0.7s ease-out both;
+  }
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-300 { animation-delay: 0.3s; }
+  .delay-400 { animation-delay: 0.4s; }
+
+  /* Card interativo — leve elevação no hover */
+  .card-interactive {
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .card-interactive:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card-hover);
+    border-color: color-mix(in oklab, var(--primary) 40%, transparent);
+  }
+
+  /* Brilho sutil do hero */
+  .hero-glow {
+    background: radial-gradient(
+      ellipse 60% 45% at 50% 0%,
+      color-mix(in oklab, var(--primary) 12%, transparent),
+      transparent
+    );
+  }
+
+  .text-gradient {
+    background: linear-gradient(120deg, var(--primary-soft), var(--primary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
