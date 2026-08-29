@@ -6,7 +6,12 @@ import tsConfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
   plugins: [
-    tanstackStart({ server: { entry: "src/server.ts" } }),
+    tanstackStart({
+      server: {
+        entry: "src/server.ts",
+        preset: "cloudflare-pages",
+      },
+    }),
     react(),
     tailwindcss(),
     tsConfigPaths(),
