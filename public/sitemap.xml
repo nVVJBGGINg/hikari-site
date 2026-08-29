@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://hikari-oficial.vercel.app/</loc>
+    <loc>https://hikari-oficial.pages.dev/</loc>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://hikari-oficial.vercel.app/informacoes</loc>
+    <loc>https://hikari-oficial.pages.dev/informacoes</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://hikari-oficial.vercel.app/adicionar</loc>
+    <loc>https://hikari-oficial.pages.dev/adicionar</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://hikari-oficial.vercel.app/suporte</loc>
+    <loc>https://hikari-oficial.pages.dev/suporte</loc>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>

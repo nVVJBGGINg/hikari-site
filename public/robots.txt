@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://hikari-oficial.vercel.app/sitemap.xml
+Sitemap: https://hikari-oficial.pages.dev/sitemap.xml
